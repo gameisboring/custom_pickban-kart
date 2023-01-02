@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="main">
+      <div class="logo">
+        <div class="item">
+          <h1><%= title %></h1>
+        </div>
+      </div>
+      <div class="menus">
+        <h2 class="textLink">
+          <a href="/" target="_blank">맵등록</a>
+        </h2>
+        <h2 class="textLink">
+          <a href="/controller" target="_blank">컨트롤러 </a>
+        </h2>
+        <h2 class="textLink">
+          <a href="/view" target="_blank">송출화면 </a>
+        </h2>
+      </div>
+    </nav>
+    <section>
+      <div id="addChamp">
+        <div class="inputBox">
+          <h3>이 름</h3>
+          <input
+            type="text"
+            name="mapName"
+            id="mapName"
+            placeholder="맵 이름 입력"
+            class="grow1 inputElement"
+          />
+        </div>
+        <div class="inputBox">
+          <h3>썸네일</h3>
+          <div id="output" class="grow1">
+            <div class="imgWrap">
+              <img src="/images/file_upload.svg" alt="" id="previewImg" />
+            </div>
+            <input
+              type="file"
+              name="mapThumb"
+              id="mapThumb"
+              style="display: none"
+              class="inputElement"
+            />
+          </div>
+        </div>
+        <div class="inputBox">
+          <h3>설 명</h3>
+          <textarea
+            class="grow1 inputElement"
+            placeholder="맵 설명 입력"
+            rows="5"
+            id="mapDescription"
+          ></textarea>
+        </div>
+        <input type="submit" value="등 록" id="addChampBtn" class="myButton" />
+      </div>
+    </section>
+  </body>
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/javascripts/index.js"></script>
+</html>

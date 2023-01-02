@@ -1,0 +1,10 @@
+node_modules
+.env
+public/images/upload/*
+public/images/map/*
+public/fonts/*
+public/javascripts/jquery.js
+public/data/*
+migrations
+config/config.json
+data/*

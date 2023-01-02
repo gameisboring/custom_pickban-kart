@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/stylesheets/view.css" rel="stylesheet" />
+    <title>View</title>
+  </head>
+  <body>
+    <section id="pickban">
+      <div class="team">
+        <!-- BANS START -->
+        <div class="bans">
+          <div class="left flex-col">
+            <% for( let index = 0; index < ban*2; index++ ) { if(index%2 ===
+            Number(blueFirst)){ %>
+            <div class="banGroup">
+              <div class="banCount"><span>BAN <%=index + 1 %></span></div>
+              <div class="ban blue <%=index + 1 %>"></div>
+            </div>
+            <% }} %>
+          </div>
+          <div class="right flex-col">
+            <% for( let index = 0; index < ban*2; index++ ) { if(index%2 ===
+            Number(redFirst) ){ %>
+            <div class="banGroup">
+              <div class="banCount"><span>BAN <%=index + 1 %></span></div>
+              <div class="ban red <%=index + 1 %>"></div>
+            </div>
+            <% }} %>
+          </div>
+        </div>
+
+        <div class="picks">
+          <% for( let index = 0; index < bestof; index++ ) { %>
+          <div class="pickGroup">
+            <div class="back"></div>
+            <div class="pick blue <%=index + 1 %>"></div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+      <!-- <div class="layoutConfig">
+        <h2 class="title"><%=title%></h2>
+        <h2 class="subTitle"><%=subtitle%></h2>
+        <h2 class="version"><%=version%></h2>
+      </div> -->
+    </section>
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/view.js"></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>컨트롤러</title>
+    <link href="/stylesheets/controller.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="controller">
+      <section id="pickban">
+        <div class="layoutConfig">
+          <h2 class="title"><%=title%></h2>
+          <h2 class="subTitle"><%=subtitle%></h2>
+          <h2 class="version"><%=version%></h2>
+        </div>
+        <div class="blue team">
+          <div class="picks">
+            <% for( let index = 0; index < bestof; index++ ) { %>
+            <div class="pickGroup">
+              <div class="back"></div>
+              <div class="pick blue <%=index + 1 %>"><%=index + 1 %></div>
+            </div>
+            <% } %>
+          </div>
+          <div class="ban">
+            <div class="bans">
+              <% for( let index = 0; index < ban*2; index++ ) {
+              if(index%2===Number(blueFirst)){%>
+              <div class="banGroup">
+                <div class="back"></div>
+                <div class="ban blue <%=index + 1 %>"><%=index + 1 %></div>
+              </div>
+              <% }} %>
+            </div>
+            <div class="bans">
+              <% for( let index = 0; index < ban*2; index++ ) {
+              if(index%2===Number(redFirst)){%>
+              <div class="banGroup">
+                <div class="back"></div>
+                <div class="ban red <%=index + 1 %>"><%=index + 1 %></div>
+              </div>
+              <% }} %>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="buttons">
+        <button class="on">ON</button>
+        <button class="off">OFF</button>
+        <h2>now : <span class="status">OFF</span></h2>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="modalBody">
+        맵을 선택하세요
+        <div class="maps"></div>
+      </div>
+    </div>
+  </body>
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/javascripts/controller.js"></script>
+</html>

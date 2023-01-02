@@ -1,0 +1,249 @@
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@import url('http://fonts.cdnfonts.com/css/clash-display');
+
+:root {
+  --pickSize: 80px;
+  --banSize: 50px;
+}
+
+body {
+  font-family: 'Clash Display', 'GmarketSansMedium', -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI',
+    'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  margin: 0 auto;
+  width: 480px;
+}
+
+select {
+  width: 100px;
+}
+
+#controller {
+  width: calc(100%);
+  height: calc(100%);
+}
+
+.layoutConfig {
+  text-align: center;
+}
+
+#pickban {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+#pickban .team {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#pickban .team .ban {
+  display: flex;
+  justify-content: space-between;
+}
+
+#pickban .team .picks,
+#pickban .team .bans {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+#pickban .red.team .bans {
+  justify-content: end;
+}
+
+#pickban .team .picks div {
+  /* width: var(--pickSize); */
+  height: var(--pickSize);
+  flex-grow: 1;
+}
+
+#pickban .team .picks .pick {
+  top: calc((var(--pickSize)) * -1);
+  position: relative;
+  line-height: calc(var(--pickSize) + (var(--pickSize) * 0.1));
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-size: 60px;
+}
+
+#pickban .team .picks .back {
+  background-color: steelblue;
+}
+
+#pickban .team .bans {
+}
+
+#pickban .team .bans div {
+  width: var(--banSize);
+  height: var(--banSize);
+}
+
+#pickban .team .bans .ban {
+  top: calc(var(--banSize) * -1);
+  line-height: calc(var(--banSize) + (var(--banSize) * 0.1));
+  transition: 0.2s all ease-in;
+  position: relative;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+
+#pickban .team .bans .back {
+  background-color: #a70000;
+}
+
+#pickban .team .picks .pick:hover,
+#pickban .team .bans .ban:hover {
+  cursor: pointer;
+  backdrop-filter: brightness(60%);
+}
+
+#pickban .team .picks .pickGroup div,
+#pickban .team .bans .banGroup div {
+  border-radius: 15px;
+}
+
+#display {
+  display: flex;
+  height: 0;
+}
+
+#display .previewDiv {
+  position: relative;
+  padding-top: 56.25%;
+  top: -130px;
+  width: 100%;
+  height: 0;
+  scale: 0.5;
+}
+
+iframe {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #8c8c8c;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: none;
+  transition: 0.3s all ease-in;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal.hide {
+  display: hidden;
+}
+
+.modalBody {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 410px;
+  height: 600px;
+  padding: 40px;
+
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 1.5rem;
+}
+
+.modalBody .maps {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 1rem;
+  height: 500px;
+  align-content: flex-start;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.modalBody .maps::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modalBody .maps::-webkit-scrollbar-thumb {
+  background-color: #8c8c8c;
+  border-radius: 10px;
+}
+
+.modalBody .maps::-webkit-scrollbar-track {
+  background-color: rgb(228, 228, 228);
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
+}
+
+.mapSelectBtn {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  transition: 0.2s all ease;
+  font-size: 1rem;
+}
+
+.mapSelectBtn:hover {
+  background-blend-mode: normal;
+  cursor: pointer;
+}
+
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.buttons button {
+  border: 0;
+  font-size: 30px;
+  font-weight: 500;
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.buttons button:hover {
+  cursor: pointer;
+}
+
+.buttons button.on {
+  background-color: #06bb00;
+}
+
+.buttons button.off {
+  background-color: #e92f00;
+}

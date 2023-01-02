@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>컨트롤러</title>
+    <link href="/stylesheets/controller.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="controller">
+      <section id="pickban">
+        <div class="blue team">
+          <div class="picks">
+            <% for( let index = 0; index < pick; index++ ) { %>
+            <div class="pickGroup">
+              <div class="back"></div>
+              <div class="pick blue <%=index + 1 %>"><%=index + 1 %></div>
+            </div>
+            <% } %>
+            <h2>블루팀 픽</h2>
+          </div>
+          <div class="bans">
+            <% for( let index = 0; index < ban; index++ ) { %>
+            <div class="banGroup">
+              <div class="back"></div>
+              <div class="ban blue <%=index + 1 %>"><%=index + 1 %></div>
+            </div>
+            <% } %>
+            <h2>블루팀 밴</h2>
+          </div>
+        </div>
+        <div class="layoutConfig">
+          <h2 class="title"><%=title%></h2>
+          <h2 class="subTitle"><%=subtitle%></h2>
+          <h2 class="version"><%=version%></h2>
+        </div>
+        <div class="red team">
+          <div class="picks">
+            <h2>레드팀 픽</h2>
+            <% for( let index = 0; index < pick; index++ ) { %>
+            <div class="pickGroup">
+              <div class="back"></div>
+              <div class="pick red <%=index + 1 %>"><%=index + 1 %></div>
+            </div>
+            <% } %>
+          </div>
+          <div class="bans">
+            <h2>레드팀 밴</h2>
+            <% for( let index = 0; index < ban; index++ ) { %>
+            <div class="banGroup">
+              <div class="back"></div>
+              <div class="ban red <%=index + 1 %>"><%=index + 1 %></div>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </section>
+      <section id="display">
+        <div class="previewDiv">
+          <iframe src="/view" frameborder="0" class="preview"></iframe>
+        </div>
+      </section>
+    </div>
+    <div class="modal">
+      <div class="modalBody">
+        챔피언을 선택하세요
+        <div class="maps"></div>
+        <!-- <button id="appendBtn">확 인</button> -->
+      </div>
+    </div>
+  </body>
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/javascripts/controller.js"></script>
+</html>

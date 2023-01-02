@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap');
+
+:root {
+  --pickSize: 200px;
+  --banWidth: 180px;
+  --banHeight: 100px;
+}
+
+body {
+  font-family: 'Oswald', -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+    'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    sans-serif;
+  margin: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+
+#pickban {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  position: fixed;
+  top: 100%;
+  transition: 1.2s all cubic-bezier(0.39, 0.58, 0.57, 1);
+}
+
+#pickban.on {
+  transform: translateY(-100%);
+}
+
+#pickban .team {
+  width: 100%;
+}
+
+#pickban .team .picks,
+#pickban .team .bans {
+  display: flex;
+  /* gap: 5px; */
+}
+
+#pickban .team .picks {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+#pickban .red.team .bans {
+  justify-content: end;
+}
+
+#pickban .team .picks div {
+  flex-grow: 1;
+  /* height: var(--pickSize); */
+  height: calc(100vw / 5 * 0.5625);
+}
+
+#pickban .team .picks .pick {
+  /* top: calc(var(--pickSize) * -1); */
+  bottom: 100%;
+
+  position: relative;
+  color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+#pickban .team .picks .back,
+#pickban .team .bans .back {
+  background-color: transparent;
+}
+
+#pickban .team .bans {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#pickban .team .bans .banGroup {
+  display: flex;
+}
+
+#pickban .team .bans .banCount {
+  flex-grow: 1;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 36px;
+  font-weight: 300;
+}
+
+#pickban .team .bans .ban {
+  width: var(--banWidth);
+  height: var(--banHeight);
+  background-color: rgba(0, 0, 0, 0.75);
+  transition: 0.2s all ease-in;
+  position: relative;
+  color: transparent;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.left .banGroup {
+  flex-direction: row;
+}
+
+.right .banGroup {
+  flex-direction: row-reverse;
+}
